@@ -5,10 +5,11 @@ import { PatientOverview } from "@beda.software/emr/dist/containers/PatientDetai
 import { PatientDocuments } from "@beda.software/emr/dist/containers/PatientDetails/PatientDocuments/index";
 import { PatientDocument } from "@beda.software/emr/dist/containers/PatientDetails/PatientDocument/index";
 import { PatientDocumentDetails } from "@beda.software/emr/dist/containers/PatientDetails/PatientDocumentDetails/index";
-import { Route } from "react-router-dom";
+import { Route, useNavigate } from "react-router-dom";
 
 
 export function PatientDetails() {
+    const navigate = useNavigate();
     return (
         <DetailPage<Patient>
             getTitle={({ resource }) => {
@@ -32,7 +33,7 @@ export function PatientDetails() {
             extraRoutes={({ resource }) => (<>
                 <Route
                     path="/documents/new/:questionnaireId"
-                    element={<PatientDocument patient={resource} author={resource as any} />}
+                    element={<PatientDocument patient={resource} author={resource as any} onSuccess={() => navigate('documents')} />}
                 />
                 <Route
                     path="/documents/:qrId/*"
