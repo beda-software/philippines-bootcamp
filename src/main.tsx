@@ -18,6 +18,9 @@ import { dashboard } from '@beda.software/emr/dist/dashboard.config';
 import { ThemeProvider } from '@beda.software/emr/theme';
 
 import { dynamicActivate, getCurrentLocale } from './services/i18n';
+import { MenuLayout } from '@beda.software/emr/dist/components/BaseLayout/Sidebar/SidebarTop/context';
+import { menuLayout } from './menu';
+import { authenticatedRoutes } from './routes';
 
 export const AppWithContext = () => {
     useEffect(() => {
@@ -28,7 +31,11 @@ export const AppWithContext = () => {
         <I18nProvider i18n={i18n}>
             <PatientDashboardProvider dashboard={dashboard}>
                 <ThemeProvider>
-                    <App />
+                    <MenuLayout.Provider value={menuLayout}>
+                        <App
+                            authenticatedRoutes={authenticatedRoutes}
+                        />
+                    </MenuLayout.Provider>
                 </ThemeProvider>
             </PatientDashboardProvider>
         </I18nProvider>
