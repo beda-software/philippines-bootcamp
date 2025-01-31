@@ -20,7 +20,7 @@ import { ThemeProvider } from '@beda.software/emr/theme';
 import { dynamicActivate, getCurrentLocale } from './services/i18n';
 import { MenuLayout } from '@beda.software/emr/dist/components/BaseLayout/Sidebar/SidebarTop/context';
 import { menuLayout } from './menu';
-import { authenticatedRoutes } from './routes';
+import { authenticatedRoutes, anonymousRoutes } from './routes';
 
 export const AppWithContext = () => {
     useEffect(() => {
@@ -34,6 +34,7 @@ export const AppWithContext = () => {
                     <MenuLayout.Provider value={menuLayout}>
                         <App
                             authenticatedRoutes={authenticatedRoutes}
+                            anonymousRoutes={anonymousRoutes}
                         />
                     </MenuLayout.Provider>
                 </ThemeProvider>

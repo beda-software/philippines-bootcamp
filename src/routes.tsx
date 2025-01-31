@@ -3,6 +3,7 @@ import { PatientList } from "./containers/patient/list";
 import { PatientDetails } from "./containers/patient/detail";
 import { QuestionnaireList } from "./containers/questionnaire/list";
 import { NewQuestionnaire } from "./containers/questionnaire/new";
+import { SignIn } from "./containers/SignIn";
 
 export const authenticatedRoutes = (
     <>
@@ -12,3 +13,9 @@ export const authenticatedRoutes = (
         <Route path="/questionnaires/aidbox-forms-builder/new" element={<NewQuestionnaire />} />
     </>
 );
+
+export const anonymousRoutes = (
+    <>
+        <Route path="/signin" element={<SignIn />} />
+    </>
+)
