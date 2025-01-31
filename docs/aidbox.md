@@ -1,9 +1,10 @@
 ## Aidbox configuration
 
-To run Beda EMR with Aidbox you need to apply some configiraiton to it.
 
-1. Create authentification client:
-Go to http://localhost:8080/ui/console#/iam/auth/Client/new
+To run Beda EMR with Aidbox you need to apply some configuration.
+
+1. Create authentification client
+http://localhost:8080/ui/console#/iam/auth/Client/new
 ```yaml
 auth:
   implicit:
@@ -14,7 +15,8 @@ grant_types:
 resourceType: Client
 ```
 Once it is saved, you will get the id. In this example it is `fd0e702e-dce8-4589-9780-1698272d8d8b`.
-2. Set client id in ./contrib/emr-config/config.js
+
+2. Use this client id in ./contrib/emr-config/config.js instead of default web
 
 ```patch
 --- a/contrib/emr-config/config.js
@@ -32,15 +34,16 @@ Once it is saved, you will get the id. In this example it is `fd0e702e-dce8-4589
  };
 ```
 
-3. Create Organization for Beda EMR.
-Go to http://localhost:8080/ui/console#/resources-v2/Organization?__nres=true
-Create an organization and copy its id.
+3. Create Organization for Beda EMR.  
+http://localhost:8080/ui/console#/resources-v2/Organization?__nres=true  
+Create an organization and copy its id.  
 
-4. Create role for your user.
-Find a user you would like to allow access to Beda EMR here http://localhost:8080/ui/console#/entities/User and copy its id.
+4. Create a role for your user.  
+Find a user you would like to allow access to Beda EMR here  
+http://localhost:8080/ui/console#/entities/User and copy its id.
 
-5. Create admin role for this user
-Go to http://localhost:8080/ui/console#/iam/access-control/Role/new
+5. Create an admin role for this user  
+http://localhost:8080/ui/console#/iam/access-control/Role/new
 ```yaml
 name: admin
 user:
@@ -54,8 +57,8 @@ resourceType: Role
 
 ```
 
-6. Create patient-create questionnaire
-Go to  http://localhost:8080/ui/console#/resources-v2/Questionnaire?__nres=true
+6. Create patient-create questionnaire  
+http://localhost:8080/ui/console#/resources-v2/Questionnaire?__nres=true
 
 
 ```json

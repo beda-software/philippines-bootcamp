@@ -18,33 +18,27 @@ We prepared [Beda EMR template](https://github.com/beda-software/emr-template) f
 
 ## Quick start guide
 
-1. Initialize the project.
-Start with fork or clone of [Beda EMR template](https://github.com/beda-software/emr-template).
-
-2. Initialize [Beda EMR](https://github.com/beda-software/fhir-emr) submodule.
+1. Initialize [Beda EMR](https://github.com/beda-software/fhir-emr) submodule.
 ```
 git submodule update --init
 ```
 
-3. Copy local configuration file for development
+2. Copy local configuration file for development
 ```
 cp contrib/emr-config/config.local.js contrib/emr-config/config.js
 ```
 
-4. Prepare to run
+3. Prepare to run
 ```
 yarn
 ```
 
-5. Build language locales
-```
-yarn compile
-```
-
-6. Run
+4. Run
 ```
 yarn start
 ```
+
+5. Configure Aidbox to work as backend: https://github.com/beda-software/philippines-bootcamp/blob/main/docs/aidbox.md
 
 Now you have fhir-emr under your full control.
 
