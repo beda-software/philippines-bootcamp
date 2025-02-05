@@ -3,7 +3,7 @@ import { SearchBarColumnType } from "@beda.software/emr/dist/components/SearchBa
 import { compileAsFirst, formatHumanDate } from "@beda.software/emr/utils";
 import { Patient } from "fhir/r4b";
 
-export const getPatientName = compileAsFirst<Patient, string>("Patient.name.given[0] + ' ' + Patient.name.family")
+export const getPatientName = compileAsFirst<Patient, string>("Patient.name.given.first() + ' ' + Patient.name.family.first()")
 
 export function PatientList() {
     return (
