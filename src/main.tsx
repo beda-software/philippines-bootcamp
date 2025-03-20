@@ -21,6 +21,7 @@ import { dynamicActivate, getCurrentLocale } from './services/i18n';
 import { MenuLayout } from '@beda.software/emr/dist/components/BaseLayout/Sidebar/SidebarTop/context';
 import { menuLayout } from './menu';
 import { authenticatedRoutes, anonymousRoutes } from './routes';
+import { populateUserInfoSharedState } from './services/roles';
 
 export const AppWithContext = () => {
     useEffect(() => {
@@ -33,6 +34,7 @@ export const AppWithContext = () => {
                 <ThemeProvider>
                     <MenuLayout.Provider value={menuLayout}>
                         <App
+                            populateUserInfoSharedState={populateUserInfoSharedState}
                             authenticatedRoutes={authenticatedRoutes}
                             anonymousRoutes={anonymousRoutes}
                         />
